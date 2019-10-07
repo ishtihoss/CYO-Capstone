@@ -19,7 +19,7 @@ My reason for picking this dataset is because of my interest in digital marketin
 
 The objective of this project is to use facebook campaign data to predict which ads are going to generate sales, so that sales and marketing resources can be directed towards high potential leads, rather than being wasted on leads that are unlikely to generate sales conversions. 
 
-For this particular project, sensitivity of the model is more important than overall accuracy. 
+For this particular project, let's sensitivity of the model is more important than overall accuracy. Which is often the case for high-involvment products like real estates. In such cases, the cost of missing out on a high potential lead is much higher than pursuing a lead that may not generate sales. 
 
 ### Loading Necessary Packages
 ```{r,include=FALSE,echo=TRUE}
@@ -403,7 +403,7 @@ results %>% ggplot(aes(x=reorder(Model_Name,Sensitivity),Sensitivity)) + geom_ba
 ```
 
 
-If we compare the model performances, it is obvious that tuning hyperparameters of XGBoost didn't yield a better performance. However, since in the final tune since we zeroed in on the optimum values for hyperparameters, training time was reduced significantly. So even though we didn't improve sensitivity by tuning the model, we achieved higher performance in terms of reducing model training time. The majority voting ensemble method was slightly lower than XGBoost model. 
+If we compare the model performances, it is obvious that tuning hyperparameters of XGBoost resulted in a slight increase in sensitivity. However, since in the final tune since we zeroed in on the optimum values for hyperparameters, training time was reduced significantly. So even though we didn't improve sensitivity by a large margin, we achieved higher performance in terms of reducing model training time. The majority voting ensemble method was slightly lower than the XGBoost models. 
 
 # Conclusion
 
