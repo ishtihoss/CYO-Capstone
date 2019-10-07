@@ -403,11 +403,13 @@ results %>% ggplot(aes(x=reorder(Model_Name,Sensitivity),Sensitivity)) + geom_ba
 ```
 
 
-If we compare the model performances, it is obvious that tuning hyperparameters of XGBoost resulted in a slight increase in sensitivity. However, since in the final tune since we zeroed in on the optimum values for hyperparameters, training time was reduced significantly. So even though we didn't improve sensitivity by a large margin, we achieved higher performance in terms of reducing model training time. The majority voting ensemble method was slightly lower than the XGBoost models. 
+If we compare the model performances, we observe that tuning hyperparameters of XGBoost resulted in a slight increase in sensitivity. However, since in the final tune since we zeroed in on the optimum values for hyperparameters, training time was reduced significantly. So even though we didn't improve sensitivity by a large margin, we achieved higher performance in terms of reducing model training time. The majority voting ensemble method was slightly lower than the XGBoost models. 
 
 # Conclusion
 
-This dataset was originally not intended for machine learning practices. Therefore the necessary features needed in order to make high accuracy predictions might not be present. Feature engineering might improve accuracy and sensitivity, but not by much. In order to get greater sensitivity (aka true positives) one might have to sacrifice specificity. Using a large number of classification algorithms in majority voting ensemble may result in a high sensitivity output model, but in that case specificity and overall accuracy will suffer. 
+This dataset was originally not intended for machine learning practices. Therefore the necessary features needed in order to make high accuracy predictions might not be present. Feature engineering might improve accuracy and sensitivity, but not by much, since features like spent, impressions and clicks are highly correlated to each other.The feature indicating gender has low variability in approved conversions.
+
+In order to get greater sensitivity (aka true positives) one might have to sacrifice specificity. Using a large number of classification algorithms in majority voting ensemble may result in a high sensitivity output model, but in that case specificity and overall accuracy will suffer. 
 
 
 
