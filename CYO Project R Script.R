@@ -73,7 +73,7 @@ tune_control <- caret::trainControl(
   method = "cv", # cross-validation
   number = 10, # with n folds 
   verboseIter = FALSE, # no training log
-  allowParallel = FALSE # FALSE for reproducible results 
+  allowParallel = TRUE # FALSE for reproducible results 
 )
 
 
@@ -237,7 +237,7 @@ tune_control_f <- caret::trainControl(
   number = 25, # with n folds 
   #index = createFolds(tr_treated$Id_clean), # fix the folds
   verboseIter = FALSE, # no training log
-  allowParallel = FALSE # FALSE for reproducible results 
+  allowParallel = TRUE # FALSE for reproducible results 
 )
 
 fits_final_f <- train(Sales~as.factor(age)+as.factor(gender)+as.factor(interest)
@@ -259,7 +259,6 @@ final_tune_with_larger_CV <- sensitivity(as.factor(fits_final_pred_f),as.factor(
 models <- c("kknn","adaboost","rf","Rborist")
 
 # Training HULK model
-
 
 fits_ensemble <- lapply(models, function(model){ 
   print(model)
